@@ -14,7 +14,8 @@ def find_goodix_gt911():
                 i2c_r = i2c_msg.read(addr, 4)
                 i2c_w = i2c_msg.write(addr, (0x81, 0x40))
                 SMBus(dev).i2c_rdwr(i2c_w, i2c_r)
-                return addr, dev
+                if list(i2c_r) == [57, 49, 49, 0]:  # 911\0
+                    return addr, dev
             except OSError:
                 pass
     return None, None
