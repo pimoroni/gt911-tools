@@ -81,7 +81,7 @@ assert calculate_checksum(regs) == checksum
 # 0x35 = 00110101 = not working config
 # 0x0d = 00001101 = works, but inverted on some?
 
-TARGET_CONFIG = 0x0d | (1 << 7) | (0b11 << 4)
+TARGET_CONFIG = 0x0d | (1 << 6) | (0b11 << 4)
 
 print(f"Attempting to set 0x804d to 0x{TARGET_CONFIG:02x}")
 
