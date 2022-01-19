@@ -59,3 +59,6 @@ print(f"Vendor ID: 0x{vendor_id:02x}")
 fw_version = struct.unpack("<H", bytes(read_reg(0x8144, 2)))[0]
 print(f"Firmware version: 0x{fw_version:04x}")
 
+
+cfg_version = read_reg(0x8047)
+print(f"Config version: 0x{cfg_version:02x} ({cfg_version})")
